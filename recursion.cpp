@@ -6,12 +6,12 @@ using namespace std;
 //you may not use while, for, do while, or goto.
 
 int nfactorial(int n) {
-    int ans = 1;
-    while (n > 1) {
-        ans *= n;
-        n--;
-    }
-    return ans;
+
+    // base case : if n = 0 && if n = 1, we're done
+    if( n == 0 || n == 1) return 1;
+    
+    // recursive call through n -> n-1 -> 1
+    return n * nfactorial(n-1);
 }
 
 int main(int argc, char* argv[]) {
