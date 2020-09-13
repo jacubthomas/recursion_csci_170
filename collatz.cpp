@@ -14,13 +14,29 @@ using namespace std;
 
 //You may not use for, while, do while, or goto.
 
-int collatz(int n) {
+int collatz(int n, int count) {
+    
+    if(n < 1){
+        cout << "invalid input. n must be >= 1" <<  endl;
+        return -1;
+    }
+    // base case : if 1, then done
+    if( n == 1 ) return count;
+    
+    // collatz step: if odd, else even
+    if(n%2==1){
+        n*=3; n++;
+    } else{
+        n/=2;
+    }
+    // recursive call
+    return collatz(n, ++count);
     
 }
 
 int main(int argc, char* argv[]) {
     int n;
     cin >> n;
-    cout << collatz(n) << endl;
+    cout << collatz(n,0) << endl;
     return 0;
 }
