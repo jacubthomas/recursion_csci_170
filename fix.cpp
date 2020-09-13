@@ -21,25 +21,26 @@ bool increasing(int a)
     if (a > 0) {
 
         //if the recursive call fails, don't bother to check further.
-        if (!increasing (a/10)) return false;
+        if (!increasing(a/10)) return false;
 
         //the least significant digit
         int last = a % 10;
 
         //the second least significant digit, 0 if a < 10
         int prev = (a / 10) % 10;
-
+        
         //make your changes only below this line.
 
         if (prev <= last) return true;
-
-        return false;
-    }
-
-    return false;
+            return false;
+        }
+    
+    // changed to true.
+    // the function recursively widdles to 0 intentionally - from there it can scan from leading the int character to end
+    return true;
 }
 
-//do not change the main function.
+
 int main (int argc, char* argv[])
 {
   int x;
