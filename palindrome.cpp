@@ -14,7 +14,18 @@ using namespace std;
 //goto.
 
 bool pal(string str, int len) {
-
+    
+    // base case: if string len is 1, then done
+    if(len == 1) return true;
+    
+    // if the ends match, chop and continue
+    if(str[0] == str[len-1]){
+        // make the problem smaller
+        string sub_str = str.substr(1, len-2);
+        return pal(sub_str, sub_str.length());
+    }
+    // mismatch deteced
+    return false;
 }
 
 int main(int argc, char* argv[]) {
