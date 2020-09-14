@@ -2,6 +2,7 @@
 
 using namespace std;
 
+/**
 //You will be calculating the greatest common divisor between 'large' and 'small'.
 //This is the biggest integer that divides evenly into both 'large' and 'small'.
 //This number will always be 1 or larger, since every number is divisible by 1.
@@ -16,9 +17,21 @@ using namespace std;
 
 //Calculate the greatest common divisor of 'large' and 'small', and return the
 //result.  You may not use while, for, do while, or goto.
+*/
 
 int gcd(int large, int small) {
     
+    int z = -1;
+
+    // prevents from dividing by 0 and
+    if(small != 0) z = large % small;
+    
+    // base case: if small divides into large evenly, done
+    if( z == 0 ) return small;
+    else if( small <= 1 ) return 1;
+    
+    // make smaller with recursive call
+    return gcd(small, z);
 }
 
 int main(int argc, char* argv[]) {
