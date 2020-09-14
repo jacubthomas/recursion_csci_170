@@ -16,7 +16,7 @@ using namespace std;
 bool pal(string str, int len) {
     
     // base case: if string len is 1, then done
-    if(len == 1) return true;
+    if(len == 0 || len == 1) return true;
     
     // if the ends match, chop and continue
     if(str[0] == str[len-1]){
